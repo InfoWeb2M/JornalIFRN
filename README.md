@@ -23,7 +23,7 @@ Se você deseja colaborar, visualizar o projeto para fins educacionais ou tem in
 
 ## 📧 Contato
 
-Autor: **Benicio Neto**  
+Autor: **Jornal IFRN**  
 E-mail: `seu-email@exemplo.com`  
 Ano: 2025
 
