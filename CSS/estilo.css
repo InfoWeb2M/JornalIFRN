@@ -88,7 +88,7 @@ footer.container{
     height: 11.2vh;
     flex-flow: row wrap;
 }
-a[href='HTML/sla.html']{
+a[href*='HTML/']{
     color: var(--background);
     padding: 1.3rem 1rem;
     text-decoration: none;
