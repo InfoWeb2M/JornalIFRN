@@ -1,8 +1,70 @@
+/*Reset Geral*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 body{
     font-family: Helvetica, sans-serif;
+    background-color: var(--background);
+}
+h1{
+    font-family: 'Playfair Display';
+    color: var(--titulo);
+}
+:not(h1){
+    font-family: 'Libre Baskerville';
+}
+p{
+    color: var(--text);
+}
+/*navbar*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+}
+/*Botão*/
+.botao{
+    text-align: center;
+    border: var(--bordas);
+    background-color: var(--botões);
+    color: var(--background);
+    padding: 1rem;
+    height: auto;
+    border-radius: 20px;
+}
+.botao:hover{
+    background-color: var(--hover);
+    cursor: pointer;
+    scale: 1.1;
+}
+.botao:active{
+    background-color: var(--hover);
+    cursor: pointer;
+    scale: 0.9;
+
+}
+/*Botão de mudar tema*/
+.botao-tema {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.icone-tema {
+  width: 28px;
+  height: 28px;
+  fill: var(--titulo); /* cor adaptável via variável */
+  transition: fill 0.3s ease;
+  cursor: pointer;
 }
