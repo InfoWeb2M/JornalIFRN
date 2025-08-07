@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--Favicon Tereza-->
+    <link rel="shortcut icon" href="../IMG/logo.png" type="image/x-icon">
+
     <!--Fontes-->
         <!--Playfair-->
             <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +25,7 @@
 </head>
 <body>
     <header class="container">
- <button id="toggleButton"><img src="" alt="menu" /></button>
+ <button style="font-size: 1.3rem; padding: 0.5rem; font-weight: bold;" class="botao" id="toggleButton">&#9776;</button>
     <nav class="sidebar" id="sidebar">
       <h2>MENU</h2>
       <ul>
@@ -33,7 +36,7 @@
         <li><a href="contatos.html">contatos</a></li>
       </ul>
     </nav>
-        <h1>Jornal Carcará</h1>
+        <h1>Jornal Tereza</h1>
         <section id="inicio">
             <button id="toggle-tema" class="botao-tema" aria-label="Alternar tema">
                 <label style="color: var(--text);" for="botao-tema">tema:</label>
@@ -42,21 +45,40 @@
                 </svg>
             </button>
         </section>       
-     <img src="" alt="logo">
+     <img alt="logo">
     </header>
+
+
     <br>
-<hr>
     <main class="container">
-<a href=""><img src="" alt="noticia1" class="mostruario"></a>
-<a href=""><img src="" alt="noticia2" class="mostruario"></a>
-<a href=""><img src="" alt="noticia3" class="mostruario"></a>
-<a href=""><img src="" alt="noticia4" class="mostruario"></a>
-    </main> <hr>
-    <div class="noticia"><img src="" alt="img-noticia" class="noticias"><h1>titulo noticia</h1><p>texto rapido da noticia</p> <button class="noticia">Saiba mais!</button></div>
-    <div class="noticia"><img src="" alt="img-noticia" class="noticias"><h1>titulo noticia</h1><p>texto rapido da noticia</p> <button class="noticia">Saiba mais!</button></div>
-    <div class="noticia"><img src="" alt="img-noticia" class="noticias"><h1>titulo noticia</h1><p>texto rapido da noticia</p> <button class="noticia">Saiba mais!</button></div>
+        <section>
+            <ar><a href=""><img src="" alt="noticia1" class="mostruario"></a></ar>
+            <ar><a href=""><img src="" alt="noticia2" class="mostruario"></a></ar>
+            <ar><a href=""><img src="" alt="noticia3" class="mostruario"></a></ar>
+            <ar><a href=""><img src="" alt="noticia4" class="mostruario"></a></ar>
+        </section>
+    </main> 
+    <article class="noticia">
+        <img src="" alt="img-noticia" class="noticias">
+        <h1>titulo noticia</h1>
+        <p>texto rapido da noticia</p> 
+        <button class="botao">Saiba mais!</button>
+    </article>
+    <article class="noticia">
+        <img src="" alt="img-noticia" class="noticias">
+        <h1>titulo noticia</h1>
+        <p>texto rapido da noticia</p> 
+        <button class="botao">Saiba mais!</button>
+    </article>
+    <article class="noticia">
+        <img src="" alt="img-noticia" class="noticias">
+        <h1>titulo noticia</h1>
+        <p>texto rapido da noticia</p> 
+        <button class="botao">Saiba mais!</button>
+    </article>
+    
     <!--JS-->
-    <script src="../JS/script.js"></script>
+    <script src="../JS/menu.js"></script>
     <script src="../JS/mudarTema.js"></script>
 </body>
 </html>

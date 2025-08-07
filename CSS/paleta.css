@@ -8,6 +8,8 @@
     --botões: #364a3a;
     --hover: #2b372a;
     --cards: #ffffff;
+    --header: #A8C1A0;
+    --shadow: 0 4px 8px rgba(120, 100, 80, 0.15);
 }
 :root[data-tema = 'escuro']{
     --background: #1f1f1a;
@@ -18,5 +20,8 @@
     --bordas: #3d3d35;
     --botões: #a5c2a2;
     --hover: #91a98f;
-    --cards: #ffffff;
+    --cards: #252520;
+    --header: #34342C;
+    --shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
 }
