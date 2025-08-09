@@ -9,7 +9,7 @@
     --hover: #2b372a;
     --cards: #ffffff;
     --header: #A8C1A0;
-    --shadow: 0 4px 8px rgba(120, 100, 80, 0.15);
+    --shadow: 0 4px 8px rgba(75, 64, 53, 0.3);
 }
 :root[data-tema = 'escuro']{
     --background: #1f1f1a;
@@ -22,6 +22,6 @@
     --hover: #91a98f;
     --cards: #252520;
     --header: #34342C;
-    --shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    --shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 
 }

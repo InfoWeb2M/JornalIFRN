@@ -21,7 +21,9 @@
     <title>Jornal IFRN</title>
 </head>
 <body>
+    <!--Cabeçalho-->
     <header style="background-color: var(--background);justify-content: center;">
+        <!--Mudar tema centralizado no centro-->
         <button id="toggle-tema" class="botao-tema" aria-label="Alternar tema">
             <label style="color: var(--text);" for="botao-tema">tema:</label>
             <svg class="icone-tema" viewBox="0 0 24 24" fill="none">
@@ -29,13 +31,14 @@
             </svg>
         </button>
     </header>
+    <!--Conteúdo principal-->
     <main class="container">
-        <figure>
+        <figure> <!--Imagem Hero Jornal-->
             <img id="fotoPrincipal" style="max-width: 65vw;" src="IMG/jornalclaro.png" alt="imgJornal">
         </figure>
     </main>
-    <footer class="container">
-        <button class="botao"><a href="HTML/inicio.html">Visitar</a></button>
+    <footer class="container"> <!--Botão para iniciar-->
+        <button class="botao"><a class="ancoraBotao" href="inicio.html">Visitar</a></button>
     </footer>
 
     <!--JS-->

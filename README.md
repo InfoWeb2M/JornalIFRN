@@ -1,6 +1,6 @@
 # 📰 Jornal do IFRN
 
-Este repositório contém o código-fonte do **Jornal do IFRN**, um projeto desenvolvido com fins educacionais e institucionais, voltado para a divulgação de conteúdos produzidos pela comunidade do Instituto Federal do Rio Grande do Norte.
+Este repositório contém o código-fonte do **Jornal do IFRN**, um projeto desenvolvido pelas turmas de InfoWeb 1m e 2m com fins educacionais e institucionais, voltado para a divulgação de conteúdos produzidos pela comunidade do Instituto Federal do Rio Grande do Norte campus Caicó.
 
 ## 📌 Sobre o Projeto
 
@@ -84,8 +84,8 @@ Estilo: Jornalismo noturno, sofisticado, com toques retrô.
 
 ## 📧 Contato
 
-Autor: **Jornal IFRN**  
-E-mail: `seu-email@exemplo.com`  
+Autor: **InfoWeb 2m 2025**  
+E-mail: `infoweb2025.2m@gmail.com`  
 Ano: 2025
 
 ---
