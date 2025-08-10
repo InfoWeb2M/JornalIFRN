@@ -228,8 +228,8 @@ img.mostruario{
 }
 /*ícones footer*/
 .icon {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.9rem;
+    height: 1.4rem;
     display: inline-block;
     vertical-align: middle;
     fill: var(--links); /* usa sua variável já existente */
