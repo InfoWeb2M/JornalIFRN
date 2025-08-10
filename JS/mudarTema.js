@@ -8,9 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const lua = "M21 12.79A9 9 0 1111.21 3a7 7 0 0010 9.79z";
 
   function aplicarTema(tema) {
+    const img = document.querySelector('#fotoPrincipal');
+
     html.setAttribute('data-tema', tema);
     localStorage.setItem('tema', tema);
     icone.setAttribute('d', tema === 'claro' ? sol : lua);
+
+    // Só troca imagem se ela existir
+    if (img) {
+      img.setAttribute('src', `IMG/jornal${tema}.png`);
+    }
   }
 
   // Inicializar tema salvo ou padrão
@@ -18,10 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
   aplicarTema(temaSalvo);
 
   // Alternar tema ao clicar
-  botao.addEventListener('click', () => {
-    const temaAtual = html.getAttribute('data-tema');
-    const novoTema = temaAtual === 'claro' ? 'escuro' : 'claro';
-
-    aplicarTema(novoTema);
-  });
+  if (botao) {
+    botao.addEventListener('click', () => {
+      const temaAtual = html.getAttribute('data-tema');
+      const novoTema = temaAtual === 'claro' ? 'escuro' : 'claro';
+      aplicarTema(novoTema);
+    });
+  }
 });

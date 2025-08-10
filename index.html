@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-tema="escuro" lang="pt-BR">
+<html data-tema="claro" lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <!--CSS-->
-    <link rel="stylesheet" href="CSS/paleta.css">
     <link rel="stylesheet" href="CSS/estilo.css">
 
     <title>Jornal IFRN</title>
@@ -34,15 +33,15 @@
     <!--Conteúdo principal-->
     <main class="container">
         <figure> <!--Imagem Hero Jornal-->
-            <img id="fotoPrincipal" style="max-width: 65vw;" src="IMG/jornalclaro.png" alt="imgJornal">
+            <img id="fotoPrincipal" loading="lazy" style="max-width: 65vw;" src="IMG/jornalclaro.png" alt="imgJornal">
         </figure>
     </main>
     <footer class="container"> <!--Botão para iniciar-->
-        <button class="botao"><a class="ancoraBotao" href="inicio.html">Visitar</a></button>
+        <button class="botao"><a class="ancoraBotao" href="noticias.html">Visitar</a></button>
     </footer>
 
     <!--JS-->
-    <script src="JS/script.js"></script>
-    <script src="JS/mudarTema(main).js"></script>
+    <script defer src="JS/script.js"></script>
+    <script defer src="JS/mudarTema.js"></script>
 </body>
 </html>
