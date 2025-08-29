@@ -1,87 +1,101 @@
 /*Paleta*/
-:root[data-tema = 'claro']{
-    --background: #ebdabe;
-    --text: #2e4030;
-    --titulo: #364a3a;
-    --destaques: #b8ac92;
-    --links: #4b6b57;
-    --bordas: #d1c2aa;
-    --botões: #364a3a;
-    --hover: #2b372a;
-    --cards: #ffffff;
-    --input: #F5F0E1;
-    --shadow: 0 4px 8px rgba(75, 64, 53, 0.3);
+:root[data-tema="claro"] {
+  --background: #ebdabe;
+  --text: #2e4030;
+  --titulo: #364a3a;
+  --destaques: #b8ac92;
+  --links: #4b6b57;
+  --bordas: #d1c2aa;
+  --botões: #364a3a;
+  --hover: #2b372a;
+  --cards: #ffffff;
+  --input: #f5f0e1;
+  --shadow: 0 4px 8px rgba(75, 64, 53, 0.3);
 }
-:root[data-tema = 'escuro']{
-    --background: #1f1f1a;
-    --text: #d8d3c2;
-    --titulo: #ced7c2;
-    --destaques: #b8ac92;
-    --links: #a5c2a2;
-    --bordas: #3d3d35;
-    --botões: #a5c2a2;
-    --hover: #91a98f;
-    --cards: #252520;
-    --input: #2A2A2A;
-    --shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-
+:root[data-tema="escuro"] {
+  --background: #1f1f1a;
+  --text: #d8d3c2;
+  --titulo: #ced7c2;
+  --destaques: #b8ac92;
+  --links: #a5c2a2;
+  --bordas: #3d3d35;
+  --botões: #a5c2a2;
+  --hover: #91a98f;
+  --cards: #252520;
+  --input: #2a2a2a;
+  --shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 /*Reset Geral*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all 0.3s ease; 
-  }
-body{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+body {
   background-color: var(--background);
 }
-h1, h2{
-    font-family: 'Playfair Display';
-    color: var(--titulo);
-    text-align: center;
+h1,
+h2 {
+  font-family: "Playfair Display";
+  color: var(--titulo);
+  text-align: center;
 }
-:not(h1, h2){
-    font-family: 'Libre Baskerville';
+:not(h1, h2) {
+  font-family: "Libre Baskerville";
 }
-p, label{
+p,
+label {
   color: var(--text);
 }
-a.ancoraBotao{/*Para botões que redirecionam para outras pages*/
+a.ancoraBotao {
+  /*Para botões que redirecionam para outras pages*/
   color: var(--background);
   padding: 1.3rem 1rem;
   text-decoration: none;
 }
-a:hover{
+a:hover {
   opacity: 0.7;
 }
 
 /*Centralizaçao geral*/
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  header&{
+  header& {
     justify-content: space-between;
+    background-color: var(--background);
+    box-shadow: var(--shadow);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
-  footer&{
+  footer& {
     height: 11.2vh;
   }
-  form&{
+  form& {
     flex-flow: column nowrap;
     gap: 1.5rem;
     margin-top: 1rem;
   }
 }
 /*formulário*/
-input, textarea{
+input,
+textarea {
   padding: 1rem 3rem;
   border-radius: 20px;
   border: var(--bordas);
   box-shadow: inset var(--shadow);
   background-color: var(--input);
+  outline: none;
+  text-align: center;
+  color: var(--text);
 }
 /* Menu lateral */
 .sidebar {
@@ -104,50 +118,54 @@ input, textarea{
   border-color: var(--bordas);
   box-shadow: var(--shadow);
 
-    &.open{
-      left: -1.5rem;
-    }
-    & > :first-child{
-      margin-top: 1rem;
-    }
-    & > :last-child{
-      margin-bottom: 1rem;
-    }
-    & ul{
-      list-style-type: none;
-      padding: 0;
-    }
-    & li{
-      margin-bottom: 10px;
-    }
-    & li:first-child{
-      margin-top: 2.5rem;
-    }
-    & a{
-      display: block;
-      font-size: x-large;
-      padding: 1rem;
-      padding-left: 0.5rem;
-      padding-bottom: 0px;
-      padding-top: 0px;
-      text-decoration: none;
-      color: var(--text);
-      margin-left: 0.5rem;
-      font-size: 1.3rem;
-    }
-    & h2{
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      text-align: justify;
-    }
+  &.open {
+    left: -1.5rem;
+  }
+  & > :first-child {
+    margin-top: 1rem;
+  }
+  & > :last-child {
+    margin-bottom: 1rem;
+  }
+  & ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  & li {
+    margin-bottom: 10px;
+  }
+  & li:first-child {
+    margin-top: 2.5rem;
+  }
+  & a {
+    display: block;
+    font-size: x-large;
+    padding: 1rem;
+    padding-left: 0.5rem;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-decoration: none;
+    color: var(--text);
+    margin-left: 0.5rem;
+    font-size: 1.3rem;
+  }
+  & h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
 
-    & a.atual{
-      border-left: 5px solid var(--destaques);
-      border-radius: 0;
-    }
+  & a.atual {
+    border-left: 5px solid var(--destaques);
+    border-radius: 0;
+  }
+}
+/*Carrossel dentro do menu*/
+section#carrossel {
+  max-height: 6.5rem;
 }
 /*Cards*/
-article{
+article {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -162,25 +180,26 @@ article{
   margin-right: auto;
   box-shadow: var(--shadow);
 
-  &.noticia{
+  &.noticia {
     gap: 8rem;
     flex-direction: row;
-  
-    & > *{
+
+    & > * {
       margin-top: 1.5rem;
       margin-bottom: 1.2rem;
     }
   }
 }
 /*navbar*/
-header{
+header {
   display: flex;
   justify-content: space-between;
+  width: 100vw;
   align-items: center;
   padding: 1rem 3rem;
 }
 /*Botão*/
-.botao{
+.botao {
   text-align: center;
   border: var(--bordas);
   background-color: var(--botões);
@@ -189,17 +208,16 @@ header{
   height: auto;
   border-radius: 20px;
 }
-.botao:hover{
-    background-color: var(--hover);
-    cursor: pointer;
-    scale: 1.1;
+.botao:hover {
+  background-color: var(--hover);
+  cursor: pointer;
+  scale: 1.1;
 }
-.botao:active{
-    background-color: var(--hover);
-    cursor: pointer;
-    scale: 0.9;
-
-  }
+.botao:active {
+  background-color: var(--hover);
+  cursor: pointer;
+  scale: 0.9;
+}
 /*Botão de mudar tema*/
 .botao-tema {
   display: flex;
@@ -213,7 +231,7 @@ header{
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
-  
+
 .icone-tema {
   width: 1.7rem;
   height: 1.7rem;
@@ -223,20 +241,20 @@ header{
 }
 
 /*Início*/
-img.mostruario{
+img.mostruario {
   width: 15rem;
 }
 /*ícones footer*/
 .icon {
-    width: 1.9rem;
-    height: 1.4rem;
-    display: inline-block;
-    vertical-align: middle;
-    fill: var(--links); /* usa sua variável já existente */
-    transition: fill 0.3s ease;
-  }
+  width: 1.9rem;
+  height: 1.4rem;
+  display: inline-block;
+  vertical-align: middle;
+  fill: var(--links); /* usa sua variável já existente */
+  transition: fill 0.3s ease;
+}
 
-  /* Mudança de cor no hover */
-  .icon:hover {
-    fill: var(--hover);
-  }
+/* Mudança de cor no hover */
+.icon:hover {
+  fill: var(--hover);
+}

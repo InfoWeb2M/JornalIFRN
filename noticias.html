@@ -32,13 +32,19 @@
             <div>
                 <h2>MENU</h2>
                 <ul>
-                    <li><a class="atual" href="noticias.html">Início</a></li>
+                    <li><a class="atual" href="noticias.html">noticias</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="imagem.html">imagens</a></li>
                     <li><a href="produtos.html">produtos</a></li>
                     <li><a href="enviar.html">enviar</a></li>
                 </ul>
             </div>
+            <section id="carrossel"> <!--Carrossel de notícias-->
+                    <a href=""><img loading="lazy" src="" alt="noticia1" class="mostruario"></a>
+                    <a href=""><img loading="lazy" src="" alt="noticia2" class="mostruario"></a>
+                    <a href=""><img loading="lazy" src="" alt="noticia3" class="mostruario"></a>
+                    <a href=""><img loading="lazy" src="" alt="noticia4" class="mostruario"></a>
+            </section>
             <!--Mudar tema-->
             <section id="tema">
                 <button id="toggle-tema" class="botao-tema" aria-label="Alternar tema">
@@ -54,13 +60,7 @@
     </header>
 
     <br>
-    <main style="flex-direction: column; margin-top: 2rem;" class="container"> <!--Conteúdo principal em coluna-->
-        <section> <!--Carrossel de notícias-->
-                <a href=""><img loading="lazy" src="" alt="noticia1" class="mostruario"></a>
-                <a href=""><img loading="lazy" src="" alt="noticia2" class="mostruario"></a>
-                <a href=""><img loading="lazy" src="" alt="noticia3" class="mostruario"></a>
-                <a href=""><img loading="lazy" src="" alt="noticia4" class="mostruario"></a>
-        </section>
+    <main style="flex-direction: column; margin-top: 3rem;" class="container"> <!--Conteúdo principal em coluna-->
         <article class="noticia"> <!--Notícia 1-->
             <img class="mostruario" loading="lazy" src="IMG/ilustração1.webp" alt="img-noticia" class="noticias">
             <div style="display: flex;flex-flow: column wrap; gap: 1rem;"> <!--Para direção diferente-->
@@ -85,7 +85,6 @@
                 <button class="botao">Saiba mais!</button>
             </div>
         </article>
-</main> 
 <footer style="gap: 1.5rem;" class="container">
         <!-- INSTAGRAM -->
         <a href="#">
