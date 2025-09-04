@@ -63,6 +63,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       main.appendChild(article);
 
+      botao.addEventListener('click', ()=>{
+        window.location.href = `noticias/${encodeURIComponent('noticia-'+ news.title +'.html')}`
+      })
+
     });
   } catch (err) {
     const msg = document.querySelector("#msg");

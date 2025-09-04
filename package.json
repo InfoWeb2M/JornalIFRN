@@ -1,0 +1,24 @@
+{
+  "name": "teste",
+  "version": "1.0.0",
+  "description": "Este repositório contém o código-fonte do **Jornal do IFRN**, um projeto desenvolvido pelas turmas de InfoWeb 1m e 2m com fins educacionais e institucionais, voltado para a divulgação de conteúdos produzidos pela comunidade do Instituto Federal do Rio Grande do Norte campus Caicó.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InfoWeb2M/JornalIFRN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InfoWeb2M/JornalIFRN/issues"
+  },
+  "homepage": "https://github.com/InfoWeb2M/JornalIFRN#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

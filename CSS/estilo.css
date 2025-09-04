@@ -46,11 +46,13 @@ h3 {
   color: var(--titulo);
   text-align: center;
 }
-:not(h1, h2) {
+:not(h1, h2, h3) {
   font-family: "Libre Baskerville";
 }
 p,
-label, em {
+label,
+em,
+li {
   color: var(--text);
 }
 a.ancoraBotao {
@@ -69,7 +71,7 @@ a:hover {
   justify-content: center;
   align-items: center;
 
-  main &{
+  main & {
     justify-self: center;
     align-self: center;
   }
@@ -173,8 +175,8 @@ section#carrossel {
 /*Cards*/
 article {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-flow: column nowrap;
   gap: 1rem;
   background-color: var(--cards);
@@ -187,14 +189,23 @@ article {
   box-shadow: var(--shadow);
 
   &.noticia {
+    display: flex;
     gap: 8rem;
     flex-direction: row;
+    align-items: center;
 
     & > * {
       margin-top: 1.5rem;
       margin-bottom: 1.2rem;
     }
   }
+  &.news{
+    display: flex;
+    text-align: start;
+    align-self: flex-start;
+    justify-content: flex-start;
+    padding: 3rem;
+    }
 }
 /*navbar*/
 header {
@@ -261,7 +272,7 @@ header {
   fill: var(--hover);
 }
 
-div.cadocadocadocan{
+div.cadocadocadocan {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -271,21 +282,25 @@ div.cadocadocadocan{
   margin-top: 2rem;
 }
 
-.botao.diferencial{
+.botao.diferencial {
   width: 80%;
 }
-img.mostruario{
+img.mostruario {
   width: 15rem;
 }
-@media  screen and (max-width:1200px) {
-  article.noticia{
+@media screen and (max-width: 1200px) {
+  article.noticia {
     flex-direction: column;
-    width: 65vw;
-  }
-  article{
+    width: 80vw;
     padding: 1rem;
   }
-  img.mostruario{
+  article {
+    padding: 1rem;
+  }
+  article.news{
+    width: 90vw;
+  }
+  img.mostruario {
     width: 50vw;
   }
 }

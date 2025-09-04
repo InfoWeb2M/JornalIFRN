@@ -1,12 +1,36 @@
+import fs from "fs";
+import fetch from "node-fetch";
+
+const API_URL = "https://apijornal.onrender.com/show-news";
+const NEWS_FOLDER = "./noticias";
+
+async function gerarNoticias() {
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error(`Erro HTTP: ${res.status}`);
+    const noticias = await res.json();
+
+    // Cria a pasta se não existir
+    if (!fs.existsSync(NEWS_FOLDER)) {
+      fs.mkdirSync(NEWS_FOLDER, { recursive: true });
+    }
+
+    // Lista de arquivos que devem existir após a atualização
+    const arquivosValidos = [];
+
+    noticias.forEach((noticia) => {
+      const safeTitle = noticia.title.replace(/[\/\\?%*:|"<>]/g, "-"); // remover caracteres inválidos
+      const fileName = `${NEWS_FOLDER}/noticia-${safeTitle}.html`;
+      arquivosValidos.push(fileName);
+
+      const html = `
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!--Favicon Tereza-->
     <link rel="shortcut icon" href="IMG/logo.png" type="image/x-icon" />
-
     <!--Fontes-->
     <!--Playfair-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,15 +46,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
-
     <!--CSS-->
-    <link rel="stylesheet" href="CSS/estilo.css" />
-
-    <title>Enviar tópicos</title>
+    <link rel="stylesheet" href="../CSS/estilo.css" />
+    <title>Notícias</title>
   </head>
   <body>
-    <!--Cabeçalho e menu-->
+    <!--Cabeçalho-->
     <header class="container">
+      <!--Botão de menu-->
       <button
         style="font-size: 1.3rem; padding: 0.5rem; font-weight: bold"
         class="botao"
@@ -38,17 +61,16 @@
       >
         &#9776;
       </button>
-      <!--Botão de menu-->
-      <!--barra de navegação-->
+      <!--Menu-->
       <nav class="sidebar" id="sidebar">
         <div>
           <h2>MENU</h2>
           <ul>
-            <li><a href="noticias.html">noticias</a></li>
-            <li><a class="atual" href="contatos.html">contatos</a></li>
+            <li><a href="../noticias.html">Início</a></li>
+            <li><a href="../enviar.html">enviar</a></li>
           </ul>
         </div>
-        <!--Mudar Tema-->
+        <!--Mudar tema-->
         <section id="tema">
           <button
             id="toggle-tema"
@@ -62,33 +84,12 @@
           </button>
         </section>
       </nav>
-      <h1 style="margin-left: 1rem">Jornal Tereza</h1>
+      <h1>Jornal Tereza</h1>
+      <img alt="logo" />
     </header>
-    <main style="flex-flow: column nowrap; height: 80vh" class="container">
-      <h2>Enviar Sugestões</h2>
-      <article style="width: 30rem">
-        <form
-          class="container"
-          action="https://formspree.io/f/mdkdyeeb"
-          method="post"
-          autocomplete="off"
-        >
-          <label for="nome">Insira seu nome</label>
-          <input type="text" name="nome" id="nome" placeholder="Nome..." />
-
-          <label for="email">Insira seu email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="exemplo@exemplo.com"
-          />
-
-          <label for="texto">Resuma suas principais ideias</label>
-          <textarea name="texto" id="texto" rows="10"></textarea>
-
-          <button class="botao" type="submit">Enviar</button>
-        </form>
+    <br />
+    <main>
+      <article class="news" data-id="${noticia.id}">
       </article>
     </main>
     <footer style="gap: 1.5rem" class="container">
@@ -106,7 +107,6 @@
           />
         </svg>
       </a>
-
       <!-- GITHUB -->
       <a target="_blank" href="https://github.com/InfoWeb2M/JornalIFRN">
         <svg
@@ -117,20 +117,40 @@
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.21 11.43c.6.11.82-.26.82-.58
-           0-.29-.01-1.05-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.1-.75.08-.74.08-.74
-           1.21.09 1.85 1.24 1.85 1.24 1.08 1.85 2.84 1.32 3.53 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.95
-           0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23
-           3.3-1.23.66 1.64.25 2.86.12 3.16.77.84 1.24 1.91 1.24 3.22
-           0 4.62-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22
-           0 1.6-.01 2.88-.01 3.27 0 .32.22.7.82.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.21 11.43c.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.1-.75.08-.74.08-.74 1.21.09 1.85 1.24 1.85 1.24 1.08 1.85 2.84 1.32 3.53 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.25 2.86.12 3.16.77.84 1.24 1.91 1.24 3.22 0 4.62-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.7.82.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"
           />
         </svg>
       </a>
     </footer>
-
     <!--JS-->
-    <script defer src="JS/menu.js"></script>
-    <script src="JS/mudarTema.js"></script>
+    <script defer src="../JS/menu.js"></script>
+    <script defer src="../JS/mudarTema.js"></script>
+    <script defer src="../JS/parse.js"></script>
   </body>
 </html>
+;
+
+      `;
+
+      fs.writeFileSync(fileName, html);
+      console.log(`✅ Arquivo ${fileName} criado/atualizado!`);
+    });
+
+    // Deleta arquivos que não estão mais na API
+    const arquivosExistentes = fs
+      .readdirSync(NEWS_FOLDER)
+      .filter((f) => f.endsWith(".html"))
+      .map((f) => `${NEWS_FOLDER}/${f}`);
+
+    arquivosExistentes.forEach((arquivo) => {
+      if (!arquivosValidos.includes(arquivo)) {
+        fs.unlinkSync(arquivo);
+        console.log(`🗑️ Arquivo ${arquivo} apagado, pois não existe na API`);
+      }
+    });
+  } catch (err) {
+    console.error("❌ Erro ao gerar notícias:", err);
+  }
+}
+
+gerarNoticias();
