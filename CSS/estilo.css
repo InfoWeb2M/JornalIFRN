@@ -40,7 +40,8 @@ body {
   background-color: var(--background);
 }
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Playfair Display";
   color: var(--titulo);
   text-align: center;
@@ -49,7 +50,7 @@ h2 {
   font-family: "Libre Baskerville";
 }
 p,
-label {
+label, em {
   color: var(--text);
 }
 a.ancoraBotao {
@@ -67,6 +68,11 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  main &{
+    justify-self: center;
+    align-self: center;
+  }
 
   header& {
     justify-content: space-between;
@@ -216,7 +222,7 @@ header {
 .botao:active {
   background-color: var(--hover);
   cursor: pointer;
-  scale: 0.9;
+  scale: 0.8;
 }
 /*Botão de mudar tema*/
 .botao-tema {
@@ -240,10 +246,6 @@ header {
   cursor: pointer;
 }
 
-/*Início*/
-img.mostruario {
-  width: 15rem;
-}
 /*ícones footer*/
 .icon {
   width: 1.9rem;
@@ -257,4 +259,33 @@ img.mostruario {
 /* Mudança de cor no hover */
 .icon:hover {
   fill: var(--hover);
+}
+
+div.cadocadocadocan{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: inherit;
+  margin-top: 2rem;
+}
+
+.botao.diferencial{
+  width: 80%;
+}
+img.mostruario{
+  width: 15rem;
+}
+@media  screen and (max-width:1200px) {
+  article.noticia{
+    flex-direction: column;
+    width: 65vw;
+  }
+  article{
+    padding: 1rem;
+  }
+  img.mostruario{
+    width: 50vw;
+  }
 }
