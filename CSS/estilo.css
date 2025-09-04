@@ -55,6 +55,12 @@ em,
 li {
   color: var(--text);
 }
+li{
+  margin-left: 3rem;
+}
+.limenu{
+  margin-left: 0;
+}
 a.ancoraBotao {
   /*Para botões que redirecionam para outras pages*/
   color: var(--background);
@@ -199,13 +205,13 @@ article {
       margin-bottom: 1.2rem;
     }
   }
-  &.news{
+  &.news {
     display: flex;
     text-align: start;
     align-self: flex-start;
     justify-content: flex-start;
     padding: 3rem;
-    }
+  }
 }
 /*navbar*/
 header {
@@ -291,13 +297,19 @@ img.mostruario {
 @media screen and (max-width: 1200px) {
   article.noticia {
     flex-direction: column;
-    width: 80vw;
+    width: 90vw;
     padding: 1rem;
+    text-align: center;
   }
   article {
     padding: 1rem;
+    gap: 0px;
   }
-  article.news{
+  article > * {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+  article.news {
     width: 90vw;
   }
   img.mostruario {

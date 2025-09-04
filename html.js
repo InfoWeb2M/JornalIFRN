@@ -66,8 +66,8 @@ async function gerarNoticias() {
         <div>
           <h2>MENU</h2>
           <ul>
-            <li><a href="../noticias.html">Início</a></li>
-            <li><a href="../enviar.html">enviar</a></li>
+            <li class="limenu"><a href="../noticias.html">Início</a></li>
+            <li class="limenu"><a href="../enviar.html">enviar</a></li>
           </ul>
         </div>
         <!--Mudar tema-->
