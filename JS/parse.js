@@ -8,15 +8,15 @@ function parseBodyToHTML(body, noticia) {
   lines.forEach((line) => {
     line = line.trim();
     if (line.startsWith("###")) {
-      finalHTML.push(`<h3>${line.slice(3).trim()}</h3>`);
+      finalHTML.push(`<h5>${line.slice(3).trim()}</h5>`);
       return;
     }
     if (line.startsWith("##")) {
-      finalHTML.push(`<h2>${line.slice(2).trim()}</h2>`);
+      finalHTML.push(`<h4>${line.slice(2).trim()}</h4>`);
       return;
     }
     if (line.startsWith("#")) {
-      finalHTML.push(`<h1>${line.slice(1).trim()}</h1>`);
+      finalHTML.push(`<h3>${line.slice(1).trim()}</h3>`);
       return;
     }
     if (line.startsWith("-")) {
