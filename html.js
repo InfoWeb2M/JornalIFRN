@@ -30,7 +30,7 @@ async function gerarNoticias() {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Favicon Tereza-->
-    <link rel="shortcut icon" href="IMG/logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../IMG/logo.png" type="image/x-icon" />
     <!--Fontes-->
     <!--Playfair-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -85,7 +85,6 @@ async function gerarNoticias() {
         </section>
       </nav>
       <h1>Jornal Tereza</h1>
-      <img alt="logo" />
     </header>
     <br />
     <main>

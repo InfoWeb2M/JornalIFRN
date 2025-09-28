@@ -29,8 +29,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -55,10 +55,10 @@ em,
 li {
   color: var(--text);
 }
-li{
+li {
   margin-left: 3rem;
 }
-.limenu{
+.limenu {
   margin-left: 0;
 }
 a.ancoraBotao {
@@ -111,7 +111,7 @@ textarea {
   text-align: center;
   color: var(--text);
 }
-#form{
+#form {
   width: 30vw;
 }
 /* Menu lateral */
@@ -189,21 +189,32 @@ article {
   width: 50vw;
   padding: 1rem 3rem;
   border-radius: 15px;
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
   box-shadow: var(--shadow);
 
   &.noticia {
+    width: calc(60vw/3);
     display: flex;
-    gap: 8rem;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding: 1.5rem;
 
     & > * {
       margin-top: 1.5rem;
       margin-bottom: 1.2rem;
     }
+
+  }
+  &.noticiaDestaque {
+    max-width: 60vw;
+    min-width: 60vw;
+    flex-flow: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    margin-bottom: 5rem;
   }
   &.news {
     display: flex;
@@ -211,6 +222,7 @@ article {
     align-self: flex-start;
     justify-content: flex-start;
     padding: 3rem;
+    margin: auto;
   }
 }
 /*navbar*/
@@ -293,8 +305,28 @@ div.cadocadocadocan {
 }
 img.mostruario {
   width: 15rem;
+
+  &.imagemDestaque{
+    width: 50rem;
+  }
+}
+#normal {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+  padding-inline: 0rem;
+  max-width: 70vw;
+  gap: 3rem;
 }
 @media screen and (max-width: 1200px) {
+  article.noticiaDestaque{
+    flex-direction: column;
+    min-width: 90vw;
+    width: 90vw;
+    padding: 1rem;
+    text-align: center;
+  }
   article.noticia {
     flex-direction: column;
     width: 90vw;
@@ -313,16 +345,28 @@ img.mostruario {
     width: 90vw;
   }
   img.mostruario {
+    width: 70vw;
+
+  }
+  img.imagemDestaque{
+    max-width: 70vw;
+  }
+  input,
+  textarea {
     width: 50vw;
   }
-  input, textarea{
-    width: 50vw;
-  }
-  #form{
+  #form {
     width: 70vw;
     padding: 2rem;
   }
-  header{
+  header {
     width: 100vw;
+  }
+  #normal{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
   }
 }
