@@ -206,8 +206,8 @@ article {
 
   }
   &.noticiaDestaque {
-    max-width: 60vw;
-    min-width: 60vw;
+    max-width: 65vw;
+    min-width: 65vw;
     flex-flow: column;
     text-align: center;
     justify-content: center;
