@@ -192,7 +192,7 @@ article {
   box-shadow: var(--shadow);
 
   &.noticia {
-    width: calc(60vw/3);
+    width: calc(60vw / 3);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -203,7 +203,6 @@ article {
       margin-top: 1.5rem;
       margin-bottom: 1.2rem;
     }
-
   }
   &.noticiaDestaque {
     max-width: 65vw;
@@ -306,8 +305,9 @@ div.cadocadocadocan {
 img.mostruario {
   width: 15rem;
 
-  &.imagemDestaque{
+  &.imagemDestaque {
     width: 50rem;
+    color: var(--text);
   }
 }
 #normal {
@@ -320,7 +320,7 @@ img.mostruario {
   gap: 3rem;
 }
 @media screen and (max-width: 1200px) {
-  article.noticiaDestaque{
+  article.noticiaDestaque {
     flex-direction: column;
     min-width: 90vw;
     width: 90vw;
@@ -346,9 +346,8 @@ img.mostruario {
   }
   img.mostruario {
     width: 70vw;
-
   }
-  img.imagemDestaque{
+  img.imagemDestaque {
     max-width: 70vw;
   }
   input,
@@ -362,7 +361,7 @@ img.mostruario {
   header {
     width: 100vw;
   }
-  #normal{
+  #normal {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
