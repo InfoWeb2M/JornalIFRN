@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html data-tema="claro" lang="pt-BR">
+<html data-tema="escuro" lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="png" href="logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!--Fontes-->
     <!--Playfair-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,64 +24,53 @@
     <link rel="stylesheet" href="CSS/estilo.css" />
 
     <!-- SEO Básico -->
-<title>Jornal Tereza - Notícias e Atualizações do IFRN</title>
-<meta name="description" content="Jornal Tereza é o portal de notícias do IFRN, trazendo informações atualizadas, reportagens, eventos e novidades da comunidade acadêmica.">
-<meta name="keywords" content="Jornal Tereza, IFRN, notícias IFRN, jornal IFRN, eventos IFRN, atualidades IFRN, Rio Grande do Norte">
-<meta name="author" content="Jornal Tereza - IFRN">
-<meta name="robots" content="index, follow">
-<meta name="language" content="pt-BR">
+    <title>Jornal Teresa - Notícias e Atualizações do IFRN</title>
+    <meta
+      name="description"
+      content="Jornal Teresa é o portal de notícias do IFRN, trazendo informações atualizadas, reportagens, eventos e novidades da comunidade acadêmica."
+    />
+    <meta
+      name="keywords"
+      content="Jornal Teresa, IFRN, notícias IFRN, jornal IFRN, eventos IFRN, atualidades IFRN, Rio Grande do Norte"
+    />
+    <meta name="author" content="Jornal Tereza - IFRN" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="pt-BR" />
 
-<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
-<meta property="og:title" content="Jornal Tereza - Notícias e Atualizações do IFRN">
-<meta property="og:description" content="Portal de notícias do IFRN com reportagens, eventos e novidades da comunidade acadêmica.">
-<meta property="og:image" content="https://jornaltereza.netlify.app/IMG/jornalescuro.png">
-<meta property="og:url" content="https://jornaltereza.netlify.app">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta
+      property="og:title"
+      content="Jornal Tereza - Notícias e Atualizações do IFRN"
+    />
+    <meta
+      property="og:description"
+      content="Portal de notícias do IFRN com reportagens, eventos e novidades da comunidade acadêmica."
+    />
+    <meta
+      property="og:image"
+      content="https://jornaltereza.netlify.app/IMG/jornalescuro.png"
+    />
+    <meta property="og:url" content="https://jornaltereza.netlify.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
 
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jornal Tereza - Notícias e Atualizações do IFRN">
-<meta name="twitter:description" content="Fique por dentro das últimas notícias, eventos e reportagens do IFRN com o Jornal Tereza.">
-<meta name="twitter:image" content="https://jornaltereza.netlify.app/IMG/jornalescuro.png">
-
-    <title>Jornal IFRN</title>
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Jornal Tereza - Notícias e Atualizações do IFRN"
+    />
+    <meta
+      name="twitter:description"
+      content="Fique por dentro das últimas notícias, eventos e reportagens do IFRN com o Jornal Tereza."
+    />
+    <meta
+      name="twitter:image"
+      content="https://jornaltereza.netlify.app/IMG/jornalescuro.png"
+    />
   </head>
   <body>
-    <!--Cabeçalho-->
-    <header
-      style="background-color: var(--background); justify-content: center"
-    >
-      <!--Mudar tema centralizado no centro-->
-      <button id="toggle-tema" class="botao-tema" aria-label="Alternar tema">
-        <label style="color: var(--text)" for="botao-tema">tema:</label>
-        <svg class="icone-tema" viewBox="0 0 24 24" fill="none">
-          <path id="icone" d="" />
-        </svg>
-      </button>
-    </header>
-    <!--Conteúdo principal-->
-    <main class="container" style="height: 80dvh;">
-      <figure>
-        <!--Imagem Hero Jornal-->
-        <img
-          id="fotoPrincipal"
-          loading="lazy"
-          style="max-width: 65vw"
-          src="IMG/jornalclaro.png"
-          alt="imgJornal"
-        />
-      </figure>
-    </main>
-    <footer class="container">
-      <!--Botão para iniciar-->
-      <button class="botao">
-        <a class="ancoraBotao" href="noticias.html">Visitar</a>
-      </button>
-    </footer>
-
-    <!--JS-->
-    <script defer src="JS/script.js"></script>
-    <script defer src="JS/mudarTema.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
