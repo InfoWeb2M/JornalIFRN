@@ -28,20 +28,22 @@ export default function App() {
   return (
     <div className="bg-[var(--background)] mt-28 w-screen min-h-[200vh] transition-all duration-300">
       <Header />
-      <section id="inicio" className="lg:my-0 my-56">
-        <img
-          src={tema === "claro" ? jornalclaro : jornalescuro}
-          alt="ImagemPrincipal"
-          className="lg:w-[60vw] w-full mx-auto"
-        />
-        <p className="text-[var(--links)] text-center mt-10 lg:mt-0 mb-20 lg:mb-10">
-          Um Jornal de Alunos para Alunos !
-        </p>
-        <hr className="text-[var(--links)] lg:max-w-3xl w-[70%] mb-16 mx-auto" />
-      </section>
-      <section id="noticias">
-        <NewsGrid />
-      </section>
+      <div className="grow">
+        <section id="inicio" className="lg:my-0 my-56">
+          <img
+            src={tema === "claro" ? jornalclaro : jornalescuro}
+            alt="ImagemPrincipal"
+            className="lg:w-[60vw] w-full mx-auto"
+          />
+          <p className="text-[var(--links)] text-center mt-10 lg:mt-0 mb-20 lg:mb-10">
+            Um Jornal de Alunos para Alunos !
+          </p>
+          <hr className="text-[var(--links)] lg:max-w-3xl w-[70%] mb-16 mx-auto" />
+        </section>
+        <section id="noticias">
+          <NewsGrid />
+        </section>
+      </div>
       <Footer/>
     </div>
   );

@@ -1,81 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-// Dados de exemplo - substitua pela sua API
-const cronicasExemplo = [
-  {
-    id: 1,
-    title: "Cachorro-Quente",
-    author: "Jornal Teresa",
-    body: `O caminho da minha sala até a portaria é sagrado, um ritual de purificação. Merdas são despejadas, junto com piadas e desabafos. É a hora em que solto as risadas e comentários que controlei dentro de mim durante toda a aula de Sandra. Melissa insiste em ressaltar, mais uma vez, seu orgulho de viver en Latinoamérica, ora em declínio, ora em ascensão. Lívia solta algum comentário filosófico que logo será esquecido no instante em que meus pés entrarem naquele ônibus.
-
-É o fim de mais um dia, que em nada parece ter agregado. Eu poderia socar algo. Ou alguém.
-
-Os alunos de praxe estendem seus celulares e cybershots para o pôr do sol no horizonte. Com o início da primavera, fica mais fácil combinar o fim das aulas com o momento exato em que o sol está a meio mastro, as cores variando de um lilás bem pálido para algo que se assemelha ao rosa, mas tem gosto de preguiça e de tudo que deveria ser bom. Os professores batem seus pontos e entram em seus carros, chiques para um brasileiro médio, enquanto eu me afirmo no futuro, tendo esta vida de servidor público, com provas que demoram eras para sequer serem corrigidas, quem dirá entregues.
-
-Não deixo de ser mais uma; tiro a minha foto de pôr do sol e posto no Instagram com algum combo de emojis que pesquiso na internet. Não queremos todos ser vistos? Minhas pulseiras chacoalham na descida dos degraus, e o que era dia, há alguns segundos, é noite o suficiente para que os postes se acendam e iluminem os estudantes da noite que começam a chegar.
-
-Lá embaixo, sou bombardeada por cookies e paçoquinhas à venda. Alunos buscando alguma grana em meio a um bombardeio de conhecimento no cérebro, que os fará ir a psicólogos que dirão que a solução dos seus problemas é um cronograma de estudos. Se fosse eu, gostaria que comprassem de mim; então clico na opção de Pix no crédito. Um problema para o meu eu do futuro resolver, como gosto de repetir para mim mesma sempre que gasto de forma imprudente. Notificações de quem eu não gostaria de receber, notas no SUAP; lembro de algumas afirmações diárias que vi no X (antigo Twitter) e as canto para afastar a minha ex-amiga, Desistência. Estou caminhando a tempo demais para isso agora.
-
-Isso tudo é culpa do brainrot.
-
-Meu coração só se alivia quando avisto a luz dos faróis descendo a RN. Deixo que a massa de alunos entrem, enquanto pago a passagem, deliciando-me com o meu cookie. Baunilha e chocolate afastam meu estresse e penso, pela primeira vez, de forma mais clara e obtusa. As queries estão lentas demais e travam o front. Não seria melhor criar índices compostos no banco?
-
-Queria que ele gostasse de mim. Queria que fosse fácil gostar de mim. É, acho que deveria deixar de comer a salada crua que servem no almoço daqui.
-
-— Não gosto quando pensa demais. Sempre distorce as coisas e faz parecer que o mundo tá acabando.
-
-E é sempre ele que puxa a espiral e a deixa em tensão. Ofereço um pedaço de cookie e ele rejeita, como também sempre faz.
-
-— Como sabe que estou pensando demais?
-— Eu fico de olhar distante e você não é muito diferente.
-— Só são 18:01. Espere eu pelo menos chegar em casa.
-— Quando você tiver chegando em casa, é que meu ônibus tá chegando.
-— Por isso mesmo. Te amo, John.
-
-Um suspiro pesado, resignado, mas que aceita as coisas como estão. O amo mais um pouquinho depois disso.
-
-— Você sabe que eu também te amo.
-
-Talvez se eu falar menos…
-
-Será que terei algum tempo para fazer algo esta noite que não envolva o IF? Ler, costurar, talvez assistir a um filme enquanto costuro… A Criada? Tantas coisas para ver, ler e fazer, mas o pensamento não toma forma e se esvai quando entro no ônibus e sou recebida pela típica cacofonia de sons. Calouros lá no fundo, com pandeiros e violões. Pedro Antônio faz as cadeiras de pole dance, flertando com quem tem rosto. Os casais dão selinhos e compartilham cachorros-quentes. Eu tenho quase certeza de que tem mais deles do que havia há uma semana atrás. Coisa da festa.
-
-Sento por conveniência com quem já não tem muito cérebro pra gastar como eu. Artur ajeita minhas coisas no próprio colo como se fossem dele, e por alguns instantes minha mochila se poupa de encardir. Observo as pessoas entrarem: rostos conhecidos, rostos novos. Alguns minutos sem entrar ninguém. 18:05. Vejo Gustavo beijar Lívia pela janela. Quando o motorista dá sinal de ir, ele corre, gritando um audível “eu te amo”.
-
-— O galã tinha que fazer uma grande saída, não é?
-
-Hoje não parece apertado. Sair na minha parada não vai ser uma operação de resgate.
-
-Um garoto lá no fundo luta para equilibrar um caderno na cabeça com um cachorro-quente por cima, tropeçando nos próprios pés, quase derrubando o lanche em cima da mochila do vizinho.
-
-De um lado.
-— A paiN tá jogando muito melhor esse split.
-— Melhor nada, a LOUD ainda vai virar.
-
-Do outro.
-— O Flamengo vai passar vergonha de novo.
-— Vergonha maior é torcer pro São Paulo.
-
-Pelo visto, meu pai e meu tio vão passar o final de semana brigando.
-
-Heloísa discute baixinho com Arthur (com th) sobre quem vai ficar com o último pedaço de cachorro-quente, enquanto alguém do fundo solta um “ai, trigonometria assunto do capeta” que quase me faz rir. A careca de Joaildo, mais uma vez, sendo a vilã de alguma história. Todo mundo vivendo mundos paralelos no mesmo espaço apertado, e eu me pergunto se algum dia eles também percebem que nada é tão importante quanto parece.
-
-— Você soube que ****** e ******* terminaram? — Pedro Antônio cochicha no ouvido de Izabelly. Desculpe-me a censura, e devo acrescentar um graças a Deus.
-
-O cheiro de abacaxi, body splash da Giovanna Baby e maionese temperada se mistura e invade meus sentidos, quase tão presente quanto o toque constante das mochilas batendo umas nas outras e em mim. O motor vibra sob meus pés e o barulho das conversas forma uma trilha sonora caótica, que de tão constante parece música. A menina do lado direito até faz batuque ritmado com os pés. Um vento frio entra pela janela entreaberta, bagunçando meu cabelo e arrepiando a nuca, lembrando que mesmo no meio do caos há pequenos instantes de silêncio se você não prestar atenção.
-
-O ônibus arranca e as luzes da rua passam rápidas, borrando os rostos e os risos ao meu redor. No fone, Supercut da Lorde. Encosto a cabeça na janela e tento parar de pensar. Mas o vidro frio me devolve o reflexo de alguém que ainda não aprendeu a não se importar tanto. E talvez nunca aprenda. Amanhã vou rir das mesmas piadas, reclamar das mesmas coisas, sonhar os mesmos sonhos — e, quem sabe, inventar outros. Por enquanto, deixo que o balanço do ônibus seja suficiente.
-
-Talvez, só talvez, isso seja viver.`,
-    image:
-      "https://ecejzvtwgbqddmqnbapx.supabase.co/storage/v1/object/public/imagens-noticias/ilustracoes/cachorroquente.jpg",
-  },
-];
-
-function CronicaCard({ cronica, onClick }) {
+function CronicaCard({ item, onClick }) {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const isPoema = item.newstype === "poema";
 
   return (
     <article
@@ -89,6 +18,7 @@ function CronicaCard({ cronica, onClick }) {
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         cursor: "pointer",
         height: "100%",
+        position: "relative",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-8px)";
@@ -99,6 +29,29 @@ function CronicaCard({ cronica, onClick }) {
         e.currentTarget.style.boxShadow = "var(--shadow)";
       }}
     >
+      {/* Badge de tipo */}
+      <div
+        style={{
+          position: "absolute",
+          top: "15px",
+          right: "15px",
+          backgroundColor: isPoema ? "var(--links)" : "var(--links)",
+          border: "var(--bordas)",
+          color: "white",
+          padding: "0.4rem 0.9rem",
+          borderRadius: "20px",
+          fontFamily: "Libre Baskerville",
+          fontSize: "0.75rem",
+          fontWeight: "bold",
+          zIndex: 10,
+          textTransform: "uppercase",
+          letterSpacing: "0.5px",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
+        }}
+      >
+        {isPoema ? "Poema" : "Crônica"}
+      </div>
+
       {/* Imagem */}
       <div
         style={{
@@ -125,9 +78,13 @@ function CronicaCard({ cronica, onClick }) {
           </div>
         )}
         <img
-          src={cronica.image}
-          alt={cronica.title}
+          src={item.image1}
+          alt={item.title}
           onLoad={() => setImageLoaded(true)}
+          onError={(e) => {
+            e.target.style.display = "none";
+            setImageLoaded(true);
+          }}
           style={{
             width: "100%",
             height: "100%",
@@ -157,7 +114,7 @@ function CronicaCard({ cronica, onClick }) {
             margin: 0,
           }}
         >
-          {cronica.title}
+          {item.title}
         </h2>
 
         <p
@@ -169,7 +126,7 @@ function CronicaCard({ cronica, onClick }) {
             margin: 0,
           }}
         >
-          Por {cronica.author}
+          Por {item.author}
         </p>
 
         <p
@@ -187,11 +144,11 @@ function CronicaCard({ cronica, onClick }) {
             textOverflow: "ellipsis",
           }}
         >
-          {cronica.body}
+          {item.body}
         </p>
 
         <button
-          onClick={() => onClick(cronica)}
+          onClick={() => onClick(item)}
           style={{
             backgroundColor: "var(--botões)",
             color: "var(--background)",
@@ -220,7 +177,7 @@ function CronicaCard({ cronica, onClick }) {
             e.currentTarget.style.transform = "scale(1.05)";
           }}
         >
-          Ler Crônica Completa
+          Ler {isPoema ? "Poema" : "Crônica"} Completa
         </button>
       </div>
     </article>
@@ -228,14 +185,46 @@ function CronicaCard({ cronica, onClick }) {
 }
 
 export default function Cronicas() {
-  const [cronicas] = useState(cronicasExemplo);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const handleCronicaClick = (cronica) => {
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch("https://apijornal.onrender.com/show-news");
+      
+      if (!response.ok) {
+        throw new Error("Erro ao carregar os dados");
+      }
+
+      const data = await response.json();
+      
+      // Filtrar apenas crônicas e poemas
+      const filtered = data.filter(
+        (item) => item.newstype === "cronica" || item.newstype === "poema"
+      );
+      
+      setItems(filtered);
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleItemClick = (item) => {
     const params = new URLSearchParams({
-      title: cronica.title,
-      author: cronica.author,
-      body: cronica.body,
-      image: cronica.image,
+      title: item.title,
+      author: item.author,
+      body: item.body,
+      image: item.image1,
+      type: item.newstype,
     });
 
     window.location.href = `/cronica?${params.toString()}`;
@@ -265,30 +254,11 @@ export default function Cronicas() {
             marginBottom: "clamp(2rem, 5vw, 3rem)",
           }}
         >
-          Crônicas
+          Crônicas & Poemas
         </h1>
 
-        {/* Grid de Crônicas */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
-            gap: "clamp(1.5rem, 3vw, 2.5rem)",
-            padding: "0 clamp(0.5rem, 2vw, 1rem)",
-          }}
-        >
-          {cronicas.map((cronica) => (
-            <CronicaCard
-              key={cronica.id}
-              cronica={cronica}
-              onClick={handleCronicaClick}
-            />
-          ))}
-        </div>
-
-        {/* Mensagem caso não haja crônicas */}
-        {cronicas.length === 0 && (
+        {/* Estado de carregamento */}
+        {loading && (
           <div
             style={{
               display: "flex",
@@ -305,7 +275,74 @@ export default function Cronicas() {
                 textAlign: "center",
               }}
             >
-              Nenhuma crônica disponível no momento.
+              Carregando...
+            </p>
+          </div>
+        )}
+
+        {/* Estado de erro */}
+        {error && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "50vh",
+            }}
+          >
+            <p
+              style={{
+                color: "#EF4444",
+                fontFamily: "Libre Baskerville",
+                fontSize: "clamp(1rem, 3vw, 1.2rem)",
+                textAlign: "center",
+              }}
+            >
+              Erro ao carregar: {error}
+            </p>
+          </div>
+        )}
+
+        {/* Grid de Crônicas e Poemas */}
+        {!loading && !error && items.length > 0 && (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns:
+                "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
+              gap: "clamp(1.5rem, 3vw, 2.5rem)",
+              padding: "0 clamp(0.5rem, 2vw, 1rem)",
+            }}
+          >
+            {items.map((item) => (
+              <CronicaCard
+                key={item.id}
+                item={item}
+                onClick={handleItemClick}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Mensagem caso não haja itens */}
+        {!loading && !error && items.length === 0 && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "50vh",
+            }}
+          >
+            <p
+              style={{
+                color: "var(--text)",
+                fontFamily: "Libre Baskerville",
+                fontSize: "clamp(1rem, 3vw, 1.2rem)",
+                textAlign: "center",
+              }}
+            >
+              Nenhuma crônica ou poema disponível no momento.
             </p>
           </div>
         )}

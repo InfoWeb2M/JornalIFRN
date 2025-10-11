@@ -8,6 +8,7 @@ import Cronicas from "./pages/Cronicas/Cronicas.jsx";
 import CronicaDetalhada from "./pages/CronicaDetalhada/cronicaDetalhada.jsx";
 import AcervoIlustracoes from "./pages/AcervoIlustracoes/index.jsx";
 import EnviarSugestoes from "./pages/Enviar/index.jsx";
+import Noticias from "./pages/NewsPage/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
     path: "/contato",
     element: <EnviarSugestoes />,
   },
+  {
+    path: "/noticias",
+    element: <Noticias />
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(

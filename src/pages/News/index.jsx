@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import NewsCard from "../CardNews";
 
 const API_BASE = "https://apijornal.onrender.com";
 
@@ -11,7 +12,18 @@ export default function NewsGrid() {
   const navigate = useNavigate();
 
   function onSaibaMais(noticia) {
-    navigate(`/noticia?title=${noticia.title}`);
+    if (noticia.newstype === "noticia" || noticia.newstype === "tirinha") {
+      navigate(`/noticia?title=${noticia.title}`);
+    } else {
+      const params = new URLSearchParams({
+        title: noticia.title,
+        author: noticia.author,
+        body: noticia.body,
+        image: noticia.image1,
+      });
+
+      navigate(`/cronica?${params.toString()}`);
+    }
   }
 
   useEffect(() => {
@@ -31,6 +43,7 @@ export default function NewsGrid() {
         newsArray.sort(
           (a, b) => new Date(b.created_at) - new Date(a.created_at)
         );
+
         setNews(newsArray);
       } catch (err) {
         setError(err.message);
@@ -135,127 +148,49 @@ export default function NewsGrid() {
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Notícia em Destaque */}
         {featuredNews && (
-          <article
-            className="rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              backgroundColor: "var(--cards)",
-              boxShadow: "var(--shadow)",
-            }}
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-              {/* Imagem da notícia destaque */}
-              {featuredNews.image1 && (
-                <div className="w-full h-64 lg:h-full self-center overflow-hidden">
-                  <img
-                    src={encodeURI(getImageUrl(featuredNews.image1))}
-                    alt={featuredNews.title || "Imagem da notícia"}
-                    className="w-full h-full object-cover rounded-xl transition-transform duration-500 hover:scale-110"
-                  />
-                </div>
-              )}
-
-              {/* Conteúdo da notícia destaque */}
-              <div className="p-6 md:p-8 lg:p-10 flex flex-col items-center justify-center">
-                <h1
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight"
-                  style={{ color: "var(--titulo)" }}
-                >
-                  {featuredNews.title}
-                </h1>
-                <p
-                  className="text-base md:text-lg mb-4 leading-relaxed"
-                  style={{ color: "var(--text)" }}
-                >
-                  {featuredNews.summary}
-                </p>
-                <pre
-                  className="text-sm md:text-base mb-6 font-sans italic"
-                  style={{ color: "var(--text)" }}
-                >
-                  - {featuredNews.author}
-                </pre>
-                <button
-                  onClick={() => onSaibaMais(featuredNews)}
-                  className="px-8 py-3 rounded-lg font-semibold cursor-pointer transition-all duration-300 hover:scale-105 self-center"
-                  style={{
-                    backgroundColor: "var(--botões)",
-                    color: "var(--cards)",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor = "var(--hover)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor = "var(--botões)")
-                  }
-                >
-                  Saiba Mais!
-                </button>
-              </div>
-            </div>
-          </article>
+          <NewsCard
+            title={featuredNews.title}
+            summary={featuredNews.summary}
+            author={featuredNews.author}
+            image={getImageUrl(featuredNews.image1)}
+            newstype={featuredNews.newstype}
+            body={
+              featuredNews.body ??
+              featuredNews.text ??
+              featuredNews.content ??
+              featuredNews.corpo ??
+              featuredNews.fulltext ??
+              featuredNews.article ??
+              ""
+            }
+            onClick={() => onSaibaMais(featuredNews)}
+            isFeatured={true}
+          />
         )}
 
         {/* Grid de Notícias Normais */}
         {regularNews.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {regularNews.map((item, index) => (
-              <article
+              <NewsCard
                 key={index}
-                className="rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col"
-                style={{
-                  backgroundColor: "var(--cards)",
-                  boxShadow: "var(--shadow)",
-                }}
-              >
-                {/* Imagem da notícia */}
-                {item.image1 && (
-                  <div className="w-full h-48 overflow-hidden">
-                    <img
-                      src={encodeURI(getImageUrl(item.image1))}
-                      alt={item.title || "Imagem da notícia"}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  </div>
-                )}
-
-                {/* Conteúdo da notícia */}
-                <div className="p-5 flex flex-col flex-grow">
-                  <h2
-                    className="text-lg md:text-xl font-bold mb-3 leading-tight"
-                    style={{ color: "var(--titulo)" }}
-                  >
-                    {item.title}
-                  </h2>
-                  <p
-                    className="text-sm md:text-base mb-3 leading-relaxed flex-grow"
-                    style={{ color: "var(--text)" }}
-                  >
-                    {item.summary}
-                  </p>
-                  <pre
-                    className="text-xs md:text-sm mb-4 font-sans italic"
-                    style={{ color: "var(--text)" }}
-                  >
-                    - {item.author}
-                  </pre>
-                  <button
-                    onClick={() => onSaibaMais(item)}
-                    className="w-full px-4 py-2 rounded-lg cursor-pointer font-semibold transition-all duration-300 hover:scale-105"
-                    style={{
-                      backgroundColor: "var(--botões)",
-                      color: "var(--cards)",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.target.style.backgroundColor = "var(--hover)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.target.style.backgroundColor = "var(--botões)")
-                    }
-                  >
-                    Saiba Mais!
-                  </button>
-                </div>
-              </article>
+                title={item.title}
+                summary={item.summary}
+                author={item.author}
+                image={getImageUrl(item.image1)}
+                newstype={item.newstype}
+                body={
+                  item.body ??
+                  item.text ??
+                  item.content ??
+                  item.corpo ??
+                  item.fulltext ??
+                  item.article ??
+                  ""
+                }
+                onClick={() => onSaibaMais(item)}
+                isFeatured={false}
+              />
             ))}
           </div>
         )}

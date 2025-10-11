@@ -138,7 +138,7 @@ function parseBodyToJSX(body, noticia) {
             marginTop: "1rem",
             marginBottom: "1rem",
             lineHeight: "1.8",
-            fontSize: "clamp(0.9rem, 2vw, 1rem)",
+            fontSize: "clamp(1rem, 2vw, 1rem)",
             textAlign: "justify",
           }}
         >
@@ -248,7 +248,7 @@ export default function Noticia() {
               borderRadius: "15px",
               boxShadow: "var(--shadow)",
               padding: "clamp(1.5rem, 4vw, 3rem)",
-              maxWidth: "min(90vw, 50rem)",
+              maxWidth: "min(90vw, 70rem)",
               width: "100%",
               display: "flex",
               flexDirection: "column",

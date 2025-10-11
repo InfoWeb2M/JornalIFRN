@@ -71,11 +71,18 @@ export default function Header() {
               Início
             </a>
             <a
+              href="/noticias"
+              style={{ color: "var(--links)" }}
+              className="block text-lg font-medium hover:opacity-70 transition-all duration-300 hover:translate-x-2"
+            >
+              Notícias
+            </a>
+            <a
               href="/cronicas"
               style={{ color: "var(--links)" }}
               className="block text-lg font-medium hover:opacity-70 transition-all duration-300 hover:translate-x-2"
             >
-              Crônicas
+              Crônicas e Poemas
             </a>
             <a
               href="/ilustracoes"
