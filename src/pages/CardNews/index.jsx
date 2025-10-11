@@ -12,16 +12,13 @@ export default function NewsCard({
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // normaliza o tipo: remove acentos e coloca em minúsculas
   const normalizeType = (t) =>
     (t || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
   const isPoemaOrCronica = ["poema", "cronica"].includes(normalizeType(newstype));
 
-  // remove tags HTML
   const stripHtml = (s) => (s ? s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : "");
 
-  // truncamento "inteligente" (não corta palavras no meio)
   const truncateSmart = (text, max = 180) => {
     if (!text) return null;
     const cleaned = text.trim();
@@ -36,7 +33,6 @@ export default function NewsCard({
 
   const getPreviewText = () => {
     if (isPoemaOrCronica) {
-      // tenta usar body (que você deve passar), senão tenta summary só como último recurso
       const candidate = stripHtml(body) || stripHtml(summary);
       const preview = truncateSmart(candidate, isFeatured ? 300 : 160);
       return preview || "Sem conteúdo disponível...";
@@ -46,7 +42,7 @@ export default function NewsCard({
 
   const previewText = getPreviewText();
 
-  // --- (o resto do componente permanece igual, só substitua {summary} por {previewText}) ---
+  // ---------- CARD EM DESTAQUE ----------
   if (isFeatured) {
     return (
       <article
@@ -80,13 +76,22 @@ export default function NewsCard({
           )}
 
           <div className="p-6 md:p-8 lg:p-10 flex flex-col items-center justify-center">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight" style={{ color: "var(--titulo)" }}>
+            <h1
+              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight"
+              style={{ color: "var(--titulo)" }}
+            >
               {title}
             </h1>
-            <p className="text-base md:text-lg mb-4 leading-relaxed" style={{ color: "var(--text)" }}>
+            <p
+              className="text-base md:text-lg mb-4 leading-relaxed"
+              style={{ color: "var(--text)" }}
+            >
               {previewText}
             </p>
-            <pre className="text-sm md:text-base mb-6 font-sans italic" style={{ color: "var(--text)" }}>
+            <pre
+              className="text-sm md:text-base mb-6 font-sans italic"
+              style={{ color: "var(--text)" }}
+            >
               - {author}
             </pre>
             <button
@@ -107,6 +112,7 @@ export default function NewsCard({
     );
   }
 
+  // ---------- CARD NORMAL ----------
   return (
     <article
       className="rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col"
@@ -138,15 +144,36 @@ export default function NewsCard({
       )}
 
       <div className="p-5 flex flex-col flex-grow">
-        <h2 className="text-lg md:text-xl font-bold mb-3 leading-tight" style={{ color: "var(--titulo)" }}>
+        <h2
+          className="text-lg md:text-xl font-bold mb-3 leading-tight"
+          style={{ color: "var(--titulo)" }}
+        >
           {title}
         </h2>
-        <p className="text-sm md:text-base mb-3 leading-relaxed flex-grow" style={{ color: "var(--text)" }}>
+
+        {/* --- Limita o tamanho do resumo com 3 pontinhos --- */}
+        <p
+          className="text-sm md:text-base mb-3 leading-relaxed flex-grow"
+          style={{
+            color: "var(--text)",
+            display: "-webkit-box",
+            WebkitLineClamp: 4, // número de linhas visíveis
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            maxHeight: "6rem", // altura máxima aproximada
+          }}
+        >
           {previewText}
         </p>
-        <pre className="text-xs md:text-sm mb-4 font-sans italic" style={{ color: "var(--text)" }}>
+
+        <pre
+          className="text-xs md:text-sm mb-4 font-sans italic"
+          style={{ color: "var(--text)" }}
+        >
           - {author}
         </pre>
+
         <button
           onClick={onClick}
           onMouseEnter={() => setIsHovered(true)}
