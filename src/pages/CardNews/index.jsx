@@ -13,11 +13,22 @@ export default function NewsCard({
   const [isHovered, setIsHovered] = useState(false);
 
   const normalizeType = (t) =>
-    (t || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    (t || "")
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
 
-  const isPoemaOrCronica = ["poema", "cronica"].includes(normalizeType(newstype));
+  const isPoemaOrCronica = ["poema", "cronica"].includes(
+    normalizeType(newstype)
+  );
 
-  const stripHtml = (s) => (s ? s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : "");
+  const stripHtml = (s) =>
+    s
+      ? s
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+      : "";
 
   const truncateSmart = (text, max = 180) => {
     if (!text) return null;
@@ -157,11 +168,12 @@ export default function NewsCard({
           style={{
             color: "var(--text)",
             display: "-webkit-box",
-            WebkitLineClamp: 4, // número de linhas visíveis
+            WebkitLineClamp: 4, // limita a 4 linhas
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",
-            maxHeight: "6rem", // altura máxima aproximada
+            lineHeight: "1.5rem", // define a altura real da linha
+            maxHeight: "calc(1.5rem * 4)", // 4 linhas exatas (sem cortar)
           }}
         >
           {previewText}
