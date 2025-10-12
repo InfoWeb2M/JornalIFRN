@@ -9,6 +9,7 @@ const ilustracoesExemplo = [
   { id: 4, url: "https://ecejzvtwgbqddmqnbapx.supabase.co/storage/v1/object/public/imagens-noticias/ilustracoes/pelobege.jpg", title: "Pelo Bege", artist: "Jornal Teresa" },
   { id: 5, url: "https://ecejzvtwgbqddmqnbapx.supabase.co/storage/v1/object/public/imagens-noticias/ilustracoes/reflexoes1.jpg", title: "Reflexões 01", artist: "Jornal Teresa" },
   { id: 6, url: "https://ecejzvtwgbqddmqnbapx.supabase.co/storage/v1/object/public/imagens-noticias/ilustracoes/solquente1.jpg", title: "Sol Quente 01", artist: "Anny" },
+  { id: 7, url: "https://ecejzvtwgbqddmqnbapx.supabase.co/storage/v1/object/public/imagens-noticias/1760287862080-a4twl4.jpeg", title: "Capitã do time de vôlei", artist: "Tata" },
 ];
 
 function ImageModal({ image, onClose }) {
