@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const API_URL = "https://apijornal.onrender.com/show-news";
+const API_URL = "https://apijornal-w0o9.onrender.com/show-news";
 
 // Função de parse do body para JSX
 function parseBodyToJSX(body, noticia) {

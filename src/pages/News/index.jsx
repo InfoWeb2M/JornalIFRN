@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NewsCard from "../CardNews";
 
-const API_BASE = "https://apijornal.onrender.com";
+const API_BASE = "https://apijornal-w0o9.onrender.com";
 
 export default function NewsGrid() {
   const [news, setNews] = useState([]);

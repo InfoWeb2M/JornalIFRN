@@ -196,7 +196,7 @@ export default function Cronicas() {
   const fetchItems = async () => {
     try {
       setLoading(true);
-      const response = await fetch("https://apijornal.onrender.com/show-news");
+      const response = await fetch("https://apijornal-w0o9.onrender.com/show-news");
       
       if (!response.ok) {
         throw new Error("Erro ao carregar os dados");

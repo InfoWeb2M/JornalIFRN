@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const API_BASE = "https://apijornal.onrender.com";
+const API_BASE = "https://apijornal-w0o9.onrender.com";
 
 function NoticiaDestaque({ noticia, onClick }) {
   const [imageLoaded, setImageLoaded] = useState(false);
