@@ -7,11 +7,7 @@ import Footer from "./pages/Footer";
 
 export default function App() {
   const [tema] = useState(() => {
-    try {
       return localStorage.getItem("tema") || "claro";
-    } catch {
-      return "claro";
-    }
   });
 
   // efeito que atualiza o localStorage e força refresh da página
