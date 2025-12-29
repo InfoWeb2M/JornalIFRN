@@ -1,5 +1,5 @@
 <picture>
-    <source media="(prefers-colors-scheme: light)" srcset="">
+    <source media="(prefers-colors-scheme: light)" srcset="https://jornalteresa.netlify.app/assets/jornalclaro-C3L1fr4J.png">
     <img src="https://jornalteresa.netlify.app/assets/jornalescuro-N2iCIYK0.png" style="border-radius: 2em;">
 </picture>
 
