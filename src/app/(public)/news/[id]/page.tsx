@@ -3,8 +3,6 @@ import NewsDetail from "@/components/newsPage/page";
 import Footer from "@/components/ui/footer/page";
 import Header from "@/components/ui/header/page";
 
-export const dynamic = "force-dynamic";
-
 export default async function News({
   params,
 }: {
