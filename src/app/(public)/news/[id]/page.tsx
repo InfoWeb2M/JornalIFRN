@@ -4,6 +4,7 @@ import Footer from "@/components/ui/footer/page";
 import Header from "@/components/ui/header/page";
 import { Suspense } from "react";
 
+export const dynamic = "force-dynamic";
 export default async function News({ params }: { params: Promise<{ id: string }> }) {
     const resolvedParams = await params;
 
