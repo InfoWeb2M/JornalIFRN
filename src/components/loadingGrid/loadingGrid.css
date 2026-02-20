@@ -1,0 +1,29 @@
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 350px);
+    gap: 1.5em;
+    padding: 1em;
+}
+
+@media (max-width: 1350px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 250px);
+  }
+}
+
+@media (max-width: 450px) {
+  .skeleton-grid {
+    grid-template-columns: 1fr !important;
+    &>* {
+        grid-column: 1/-1;
+    }
+  }
+}

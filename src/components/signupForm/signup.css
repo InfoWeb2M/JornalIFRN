@@ -1,0 +1,65 @@
+.sign-up-form {
+    max-width: 90vw;
+}
+
+.password-input {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+
+    input {
+        width: 100%;
+    }
+
+    svg {
+        cursor: pointer;
+        transition: transform 200ms ease;
+        &:hover { scale: 1.05 }
+        &:active { scale: .95 }
+    }
+}
+
+.gender-div {
+    position: relative;
+
+    &::after {
+        pointer-events: none;
+        content: '▼';
+        position: absolute;
+        bottom: 1.2em;
+        right: 1.6em;
+        z-index: 99;
+        font-size: 14px;
+        rotate: 0deg;
+        transition: rotate 200ms ease;
+        text-align: center;
+    }
+}
+
+.gender-div:has(.gender-select:active)::after {
+    rotate: 180deg;
+}
+
+.gender-select {
+    appearance: none;
+    cursor: pointer;
+}
+
+@media screen and (width <= 600px) {
+    .sign-up-form {
+        padding: 1.5em;
+    }
+}
+
+@media screen and (width <= 500px) {
+    .form-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+        hr {
+            rotate: 0deg;
+            width: 60%;
+        }
+    }
+}

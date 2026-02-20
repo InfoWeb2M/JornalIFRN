@@ -1,0 +1,37 @@
+.login-form {
+    max-width: 90vw;
+}
+
+.password-input {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+
+    input {
+        width: 100%;
+    }
+
+    svg {
+        cursor: pointer;
+        transition: transform 200ms ease;
+        &:hover { scale: 1.05 }
+        &:active { scale: .95 }
+    }
+}
+
+@media screen and (width <= 550px) {
+    .login-form {
+        padding: 1.5em;
+    }
+
+    .form-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+        hr {
+            rotate: 0deg;
+            width: 60%;
+        }
+    }
+}
