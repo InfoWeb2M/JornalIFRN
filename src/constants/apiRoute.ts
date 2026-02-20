@@ -1,1 +1,1 @@
-export const API_MAIN_ROUTE = "http://localhost:1992";
+export const API_MAIN_ROUTE = "https://jornalteresa.onrender.com";
