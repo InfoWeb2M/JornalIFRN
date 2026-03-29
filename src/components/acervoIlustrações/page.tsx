@@ -41,12 +41,12 @@ const ilustracoesExemplo = [
         title: "Sol Quente 01",
         artist: "Anny",
     },
-    {
-        id: 7,
-        url: "https://ecejzvtwgbqddmqnbapx.supabase.co/storage/v1/object/public/imagens-noticias/1760287862080-a4twl4.jpeg",
-        title: "Capitã do time de vôlei",
-        artist: "Tata",
-    },
+    // {
+    //     id: 7,
+    //     url: "https://ecejzvtwgbqddmqnbapx.supabase.co/storage/v1/object/public/imagens-noticias/1760287862080-a4twl4.jpeg",
+    //     title: "Capitã do time de vôlei",
+    //     artist: "Tata",
+    // },
 ];
 
 function ImageModal({ image, onClose }: { image: (typeof ilustracoesExemplo)[0] | null; onClose: () => void }) {
@@ -79,13 +79,13 @@ function ImageModal({ image, onClose }: { image: (typeof ilustracoesExemplo)[0] 
                 <div className="mt-4 text-center bg-white/10 backdrop-blur-sm rounded-lg p-4">
                     <h3
                         className="text-2xl font-bold mb-1"
-                        style={{ color: "var(--background)", fontFamily: "Playfair Display" }}
+                        style={{ color: "#f8e9c7", fontFamily: "Playfair Display" }}
                     >
                         {image.title}
                     </h3>
                     <p
                         className="text-lg italic"
-                        style={{ color: "var(--background)", fontFamily: "Libre Baskerville", opacity: 0.9 }}
+                        style={{ color: "#f8e9c7", fontFamily: "Libre Baskerville", opacity: 0.9 }}
                     >
                         Por {image.artist}
                     </p>
@@ -135,15 +135,15 @@ function GalleryItem({
             />
 
             <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
-                <h3 className="text-lg md:text-xl font-bold mb-2 text-white" style={{ fontFamily: "Playfair Display" }}>
+                <h3 className="text-white text-lg md:text-xl font-bold mb-2 " style={{ color: '#ffffff', fontFamily: "Playfair Display" }}>
                     {image.title}
                 </h3>
                 <p className="text-sm md:text-base italic text-white/90" style={{ fontFamily: "Libre Baskerville" }}>
                     {image.artist}
                 </p>
                 <button
-                    className="mt-4 px-4 py-2 rounded-full text-sm font-bold transition-all duration-300"
-                    style={{ backgroundColor: "var(--botões)", color: "var(--background)" }}
+                    className="mt-4 px-4 py-2 bg-accent  rounded-full text-sm font-bold transition-all duration-300"
+                    style={{ backgroundColor: "var(--botoes)", color: "var(--background)" }}
                     onClick={e => {
                         e.stopPropagation();
                         onClick(image);
@@ -176,7 +176,7 @@ export default function AcervoIlustracoes() {
                         className="text-center text-base md:text-lg max-w-2xl mx-auto"
                         style={{ fontFamily: "Libre Baskerville", color: "var(--text)" }}
                     >
-                        Explore nossa coleção de ilustrações criadas pelos artistas do Jornal Tereza
+                        Explore nossa coleção de ilustrações criadas pelos artistas do Jornal Teresa
                     </p>
                 </div>
 

@@ -26,7 +26,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen relative overflow-hidden flex items-center justify-center p-4 bg-[(--background)] transition-colors duration-300">
+    <div className="min-h-screen relative overflow-hidden flex items-center justify-center p-4 bg-[(--background) transition-colors duration-300">
       {/* Estilos globais para animações */}
       <style
         dangerouslySetInnerHTML={{
@@ -121,7 +121,7 @@ export default function Error({
         <div className="text-center relative">
           {/* Placa de manutenção */}
           <div className="inline-block mb-6 opacity-0 animate-fadeInDown">
-            <div className="bg-[(--destaques)] text-[(--background)] px-8 py-3 rounded-lg font-bold text-lg shadow-[(--shadow)] border-4 border-[(--foreground)] transform -rotate-2">
+            <div className="bg-[(--destaques) text-[(--background) px-8 py-3 rounded-lg font-bold text-lg shadow-[(--shadow) border-4 border-[(--foreground) transform -rotate-2">
               ⚠️ ÁREA EM MANUTENÇÃO ⚠️
             </div>
           </div>
@@ -167,9 +167,8 @@ export default function Error({
 
             {/* Imagem */}
             <div
-              className={`relative w-72 h-72 mx-auto opacity-0 animate-zoomIn ${
-                glitchActive ? "animate-glitch" : ""
-              }`}
+              className={`relative w-72 h-72 mx-auto opacity-0 animate-zoomIn ${glitchActive ? "animate-glitch" : ""
+                }`}
             >
               <Image
                 src="/teresa_engenheira.png"
@@ -205,39 +204,39 @@ export default function Error({
           {/* Conteúdo */}
           <div className="space-y-6 opacity-0 animate-fadeInUp">
             <div className="relative inline-block">
-              <h1 className="text-5xl md:text-7xl font-black text-(--titulo)] mb-2 tracking-tight relative z-10">
+              <h1 className="text-5xl md:text-7xl font-black text-(--titulo) mb-2 tracking-tight relative z-10">
                 ERRO INTERNO
               </h1>
-              <div className="absolute inset-0 bg-(--destaques)] opacity-20 blur-xl -z-10 transform scale-110" />
+              <div className="absolute inset-0 bg-(--destaques) opacity-20 blur-xl -z-10 transform scale-110" />
             </div>
 
-            <p className="text-xl md:text-2xl text-(--text)] font-semibold px-4 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-(--text) font-semibold px-4 max-w-2xl mx-auto">
               Estamos passando por problemas nos nossos servidores
             </p>
 
-            <p className="text-base md:text-lg text-(--text)] opacity-80 px-4 max-w-xl mx-auto">
+            <p className="text-base md:text-lg text-(--text) opacity-80 px-4 max-w-xl mx-auto">
               A teresa engenheira está trabalhando duro para consertar isso.
               Enquanto isso, que tal uma pausa para o café? ☕
             </p>
 
             {/* Card de status */}
-            <div className="bg-(--cards)] border-2 border-(--bordas)] rounded-xl p-6 shadow-(--shadow)] max-w-lg mx-auto my-8 hover:border-(--destaques)] transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+            <div className="bg-(--cards) border-2 border-(--bordas) rounded-xl p-6 shadow-(--shadow) max-w-lg mx-auto my-8 hover:border-(--destaques) transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-(--text)] font-semibold">
+                <span className="text-(--text) font-semibold">
                   Status do Sistema:
                 </span>
-                <span className="flex items-center gap-2 text-(--destaques)]">
-                  <span className="w-3 h-3 bg-(--destaques)] rounded-full animate-pulse" />
+                <span className="flex items-center gap-2 text-(--destaques)">
+                  <span className="w-3 h-3 bg-(--destaques) rounded-full animate-pulse" />
                   Em Reparo
                 </span>
               </div>
-              <div className="w-full bg-(--input)] rounded-full h-3 overflow-hidden">
+              <div className="w-full bg-(--input) rounded-full h-3 overflow-hidden">
                 <div
-                  className="bg-(--botoes)] h-full rounded-full animate-pulse"
+                  className="bg-(--botoes) h-full rounded-full animate-pulse"
                   style={{ width: "65%" }}
                 />
               </div>
-              <p className="text-sm text-(--text)] opacity-60 mt-3 text-center">
+              <p className="text-sm text-(--text) opacity-60 mt-3 text-center">
                 Progresso estimado: 65%
               </p>
             </div>
@@ -246,17 +245,16 @@ export default function Error({
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
               <button
                 onClick={reset}
-                className="group px-10 py-4 bg-(--botoes)] text-white rounded-xl font-bold text-lg hover:bg-(--hover)] transition-all duration-300 shadow-(--shadow)] hover:shadow-2xl hover:scale-110 focus:outline-none focus:ring-4 focus:ring-(--destaques)] focus:ring-offset-2 w-full sm:w-auto relative overflow-hidden"
+                className="group px-10 py-4 bg-(--cards) text-white rounded-xl font-bold text-lg hover:bg-(--input) border-3 border-(--bordas) hover:border-(--botoes) transition-all duration-300 shadow-(--shadow) hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-(--destaques) w-full sm:w-auto relative overflow-hidden"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   🔄 Tentar Novamente
                 </span>
-                <div className="absolute inset-0 bg-(--hover)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </button>
 
               <button
                 onClick={() => router.push("/")}
-                className="px-10 py-4 bg-(--cards)] text-(--text)] rounded-xl font-bold text-lg border-3 border-(--bordas)] hover:border-(--botoes)] hover:bg-(--input)] transition-all duration-300 shadow-(--shadow)] hover:shadow-2xl hover:scale-110 focus:outline-none focus:ring-4 focus:ring-(--destaques)] focus:ring-offset-2 w-full sm:w-auto"
+                className="px-10 py-4 bg-(--cards) text-(--text) rounded-xl font-bold text-lg border-3 border-(--bordas) hover:border-(--botoes) hover:bg-(--input) transition-all duration-300 shadow-(--shadow) hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-(--destaques) focus:ring-offset-2 w-full sm:w-auto"
               >
                 <span className="flex items-center justify-center gap-2">
                   🏠 Voltar para Casa
@@ -267,12 +265,12 @@ export default function Error({
 
           {/* Info técnica */}
           <div className="mt-12 opacity-0 animate-fadeIn-5">
-            <div className="inline-flex items-center gap-3 bg-(--cards)] px-6 py-3 rounded-full border border-(--bordas)] shadow-lg">
-              <span className="text-(--destaques)] font-mono text-sm">
+            <div className="inline-flex items-center gap-3 bg-(--cards) px-6 py-3 rounded-full border border-(--bordas) shadow-lg">
+              <span className="text-(--destaques) font-mono text-sm">
                 Error ID: {error.digest?.slice(0, 8) || "UNKNOWN"}
               </span>
-              <span className="w-1.5 h-1.5 bg-(--destaques)] rounded-full animate-pulse" />
-              <span className="text-(--text)] opacity-60 text-sm">
+              <span className="w-1.5 h-1.5 bg-(--destaques) rounded-full animate-pulse" />
+              <span className="text-(--text) opacity-60 text-sm">
                 {new Date().toLocaleTimeString("pt-BR")}
               </span>
             </div>

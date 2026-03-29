@@ -2,6 +2,7 @@
 
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import { NOT_ADMIN_ROUTES } from "@/constants/adminRoutes";
 
 import { isAdminRoutesActions } from "@/actions/isAdminActions/isAdminActions";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -13,7 +14,7 @@ import "./style.css";
 type Routes = Record<string, string>;
 
 export default function Header() {
-    const [headerRoutes, setHeaderRoutes] = useState<Routes>({});
+    const [headerRoutes, setHeaderRoutes] = useState<Routes>(NOT_ADMIN_ROUTES); // Rotas default, provisórias antes de dar fetch na api
 
     useEffect(() => {
         isAdminRoutesActions().then(res => {

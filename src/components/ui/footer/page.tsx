@@ -16,12 +16,12 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer className="bg-[var(--cards)] shadow-[var(--shadow)] mt-auto rounded-t-xl">
+        <footer className="bg-(--cards) shadow-(--shadow) mt-auto rounded-t-xl">
             <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
                 {/* Logo / Nome do Jornal */}
                 <div className="text-center md:text-left">
                     <h2 className="text-2xl font-bold tracking-tight" style={{ color: "var(--titulo)" }}>
-                        Jornal Tereza
+                        Jornal Teresa
                     </h2>
                     <p className="text-sm mt-1" style={{ color: "var(--links)" }}>
                         Informação de qualidade, sempre com você.
@@ -107,9 +107,9 @@ export default function Footer() {
             </div>
 
             {/* Linha final */}
-            <div className="border-t border-[var(--bordas)] py-4">
+            <div className="border-t border-(--bordas) py-4">
                 <p className="text-center text-xs" style={{ color: "var(--links)" }}>
-                    © {new Date().getFullYear()} Jornal Tereza — Todos os direitos reservados
+                    © {new Date().getFullYear()} Jornal Teresa — Todos os direitos reservados
                 </p>
             </div>
         </footer>

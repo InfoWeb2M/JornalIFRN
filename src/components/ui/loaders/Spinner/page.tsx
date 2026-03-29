@@ -1,4 +1,10 @@
-export default function Spinner({ size = 20 }: { size?: number }) {
+interface SpinnerProps {
+  size?: number,
+  circleColor?: string,
+  partialCircleColor?: string
+}
+
+export default function Spinner({ size = 20, circleColor = 'currentColor', partialCircleColor = 'currentColor' }: SpinnerProps) {
   return (
     <svg
       width={size}
@@ -13,13 +19,13 @@ export default function Spinner({ size = 20 }: { size?: number }) {
         cx="12"
         cy="12"
         r="10"
-        stroke="currentColor"
+        stroke={circleColor}
         strokeWidth="4"
         fill="none"
         className="opacity-25"
       />
       <path
-        fill="currentColor"
+        fill={partialCircleColor}
         className="opacity-75"
         d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
       />
