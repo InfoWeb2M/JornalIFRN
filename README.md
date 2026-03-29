@@ -7,7 +7,7 @@
     Jornal Teresa
 </h1>
 
-Jornal para a comunidade do IFRN. Feito por alunos, para alunos! Visite o site em <a href="https://jornalteresa.netlify.app/" target='_blank'>jornalteresa.netlify.app</a> !
+Jornal para a comunidade do IFRN. Feito por alunos, para alunos! Visite o site em <a href="https://jornalteresa.vercel.app/" target='_blank'>jornalteresa.vercel.app</a> !
 
 
 
